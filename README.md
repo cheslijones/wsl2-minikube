@@ -1,6 +1,6 @@
 # Setup
 
-Assuming WSL2 is already enabled and using Ubuntu 20.04 LTS.
+Assuming WSL2 is already enabled and using WSL2 Ubuntu 20.04 LTS is already installed.
 
 1. [Install `docker`](https://docs.docker.com/engine/install/ubuntu/):
    ```
@@ -121,11 +121,11 @@ This should spin up the cluster. If not:
 
 With the cluster happily runing, and with your `minikube ip` in hand, go to the IP address in browser. Mostly likely it is `172.17.0.3`. 
 
-The browser will spin and eventually say it can't be located. Only happens with `--vm-driver=docker`... well `--vm-driver=podman` also 
+The browser will spin and eventually say it can't be located. Only happens with `--vm-driver=docker`... well `--vm-driver=podman` also. 
 
-One proposed solution is to use `--port-forward`. If run `skaffold dev --port-forward`, you can navigate to the microservices running in you cluser with `localhost:3000` (`3000` being the port `npm start` is running on). But this is highly undesirable as it will bypass cluster routing issues, which defeats the purpose of a local Kubernetes development environment. 
+One proposed solution is to use `--port-forward`. If I run `skaffold dev --port-forward`, you can navigate to the microservices running in you cluser with `localhost:3000` (`3000` being the port `npm start` is running on). But this is highly undesirable as it will bypass cluster routing issues, which defeats the purpose of a local Kubernetes development environment. 
 
-For example, when I was setting up API a Django API and needed to prefix `/api` to the route such that Django Admin portal continued to work. If I had used `--port-forward`, I wouldn't have come across the issue that Django admin wasn't working because navigating to `/api/admin` would automatically reroute to `/admin` which wasn't a route in the the `ingress.yaml`. By running a local Kubernetes dev cluster, without `--port-forward`, I figured out I needed to add `FORCE_SCRIPT_NAME = '/api/'` to the `settings.py`.
+For example, when I was setting up a Django API and needed to prefix `/api` to the route such that Django Admin portal continued to work. If I had used `--port-forward`, I wouldn't have come across an issue where Django admin wasn't working because navigating to `/api/admin` would automatically reroute to `/admin` which wasn't a route in the the `ingress.yaml` and shouldnt' be. By running a local Kubernetes dev cluster, without `--port-forward`, I figured out I needed to add `FORCE_SCRIPT_NAME = '/api/'` to the `settings.py` and the problem was solved.
 
 Another proposed solution is to use `minikube tunnel`. I've never been able to get this to work. I get dozens of:
 
@@ -141,7 +141,7 @@ Status:
                 router: no errors
                 loadbalancer emulator: no errors
 ```
-A new entry is added any time I navigate to 10.96.0.x or `172.17.0.3. Ultimately, it just results in the same. Browsers says "Hmmmm... can't reach this page."
+A new entry is added any time I navigate to `10.96.0.x` or `172.17.0.3`. Ultimately, it just results in the same. Browsers says "Hmmmm... can't reach this page."
 
 Also have tried `:3000` at the end of these IP addresses. Doesn't work and shouldn't because the ingress should be routing traffic on `80` or `443`.
 
