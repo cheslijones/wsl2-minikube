@@ -1,0 +1,25 @@
+apiVersion: skaffold/v2beta1
+kind: Config
+build:
+  artifacts:
+  - image: app-client
+    context: client
+    sync:
+      manual:
+      - src: 'src/**/*.js'
+        dest: .
+      - src: '**/*.json'
+        dest: .
+      - src: 'public/**/*.html'
+        dest: .
+      - src: 'src/build/**/*.js'
+        dest: .
+    docker:
+      dockerfile: Dockerfile.dev
+  local:
+    push: false
+deploy:
+  kubectl:
+    manifests:
+      - manifests/ingress.yaml 
+      - manifests/client.yaml
