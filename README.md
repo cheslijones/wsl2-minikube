@@ -104,14 +104,14 @@ Assuming WSL2 is already enabled and using WSL2 Ubuntu 20.04 LTS is already inst
 This should spin up the cluster. If not:
 
 - Make sure `docker` is running (`sudo service docker start`)
-- If it is running, then you are likely getting the "`cgroups` error:
+- If it is running, then you are likely getting the "`cgroups`" error:
   ```
   sudo mkdir /sys/fs/cgroup/systemd
 
   sudo mount -t cgroup -o none,name=systemd cgroup /sys/fs/cgroup/systemd
   ```
 
-# Expectiations vs Reality
+# Expectations vs Reality
 
 With the cluster happily runing, and with your `minikube ip` in hand, go to the IP address in browser. Mostly likely it is `172.17.0.3`. 
 
