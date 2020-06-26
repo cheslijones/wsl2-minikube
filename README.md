@@ -90,14 +90,8 @@ Assuming WSL2 is already enabled and using WSL2 Ubuntu 20.04 LTS is already inst
     sudo install skaffold /usr/local/bin/
     ```
 
-5. [Install `ingress-nginx`](https://kubernetes.github.io/ingress-nginx/deploy/)
-    ```
-    # this command may no longer be necessary, but I still run it without issues in macOS and Linux
-    kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/nginx-0.30.0/deploy/static/mandatory.yaml
-    
-    # this command may no longer be necessary, but I still run it without issues in macOS and Linux
-    kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/nginx-0.30.0/deploy/static/provider/cloud-generic.yaml
-    
+5. [Install / enable `ingress-nginx`](https://kubernetes.github.io/ingress-nginx/deploy/)
+    ```    
     minikube addons enable ingress
     ```
 
