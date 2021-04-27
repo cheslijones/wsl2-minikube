@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: client
-          image: app-client
+          image: client
           ports:
             - containerPort: 3000
 ---
