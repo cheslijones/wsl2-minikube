@@ -1,5 +1,5 @@
 # Purpose
-This repo was originalyl intended to show the numerous issues that one was faced with when trying to use WSL2 with `minikube`.
+This repo was originally intended to show the numerous issues that one was faced with when trying to use WSL2 with `minikube`.
 
 Now, after several years and countless hours of testing to get issues worked out, it finally looks like WSL/WSL2 is usable for development (for my use case). Much appreciation to the developers of WSL2 and `minikube`. I've actually deleted my Linux partition and started using WSL2 fulltime.
 
@@ -24,7 +24,7 @@ Refer to the documentation below for the latest installation processes.
 
 2. `cd wsl2-minikube`
 
-3. [Install `docker`](https://docs.docker.com/engine/install/ubuntu/):
+3. [Install `docker`](https://docs.docker.com/engine/install/ubuntu/) directly into WSL2:
 
    If you'd rather not have to use `sudo` then also do:
    ```
@@ -46,7 +46,7 @@ Refer to the documentation below for the latest installation processes.
     ```
     minikube start --vm-driver=docker
     ```
-    The `minikube` VM should spin up in about a minute. 
+    It should spin up in about a minute. 
 
 6. [Install `skaffold`](https://skaffold.dev/docs/install/)
 
@@ -58,11 +58,26 @@ Refer to the documentation below for the latest installation processes.
     ```
 
 8. Run `skaffold dev`.
-    
-This should spin up the cluster. If not:
+9. In another terminal, run `minikube tunnel` which should prompt you for `sudo` credentials:
 
-  - Make sure `docker` is running (`sudo service docker start`).
-  - Make sure your `minikube` cluster is running with `minikube start`.
+    ```
+    $ minikube tunnel
+    ❗  The service ingress-nginx-controller requires privileged ports to be exposed: [80 443]
+    🔑  sudo permission will be asked for it.
+    🏃  Starting tunnel for service ingress-nginx-controller.
+    [sudo] password for cheslijones: 
+    ```
+
+10. Open your preferred browser and navigate to `localhost`. 
+
+    You should see:
+
+    [<img src="https://assets.digitalocean.com/articles/66983/React_template_project.png">](https://assets.digitalocean.com/articles/66983/React_template_project.png)
+
+    If not:
+
+    - Make sure `docker` is running (`sudo service docker start`).
+    - Make sure your `minikube` cluster is running with `minikube start`.
 
 
 # Questions, Issues and Feedback
