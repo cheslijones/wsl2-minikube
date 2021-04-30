@@ -1,9 +1,9 @@
 # Purpose
-This repo was originally intended to show the numerous issues that one was faced with when trying to use WSL2 with `minikube`.
+This repo was originally intended to show the numerous issues one was faced with when trying to use WSL2 with `minikube`.
 
 Now, after several years and countless hours of testing to get issues worked out, it finally looks like WSL/WSL2 is usable for development (for my use case). Much appreciation to the developers of WSL2 and `minikube`. I've actually deleted my Linux partition and started using WSL2 fulltime.
 
-My use case is the following the stack:
+My use case is the following stack:
 - `docker` running in WSL2 and not Docker Desktop for Windows
 - `kubectl`
 - `minikube`
