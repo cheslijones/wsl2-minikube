@@ -1,7 +1,7 @@
 # Purpose
 This repo was originally intended to show the numerous issues one was faced with when trying to use WSL2 with `minikube`.
 
-Now, after several years and countless hours of testing to get issues worked out, it finally looks like WSL/WSL2 is usable for development (for my use case). Much appreciation to the developers of WSL2 and `minikube`. I've actually deleted my Linux partition and started using WSL2 fulltime.
+Now, after several years and countless hours of testing to get issues worked out, it finally looks like WSL/WSL2 is usable for development (for my use case). Much appreciation to the developers of WSL2 and `minikube`. I've actually deleted my Linux partition and started using WSL2 full-time.
 
 My use case is the following stack:
 - `docker` running in WSL2 and not Docker Desktop for Windows
@@ -13,6 +13,8 @@ My use case is the following stack:
 I'm repurposing this repo to demonstrate how to get this stack up and running in WSL2.
 
 For the `mkcert` implementation, please see [this repo](https://github.com/cheslijones/tls-minikube).
+
+9/11/21 Update - It seems like this wasn't working properly so I fixed the issue.
 
 # Setup
 
@@ -54,7 +56,7 @@ Refer to the documentation below for the latest installation processes.
 
     It is a bit counter-intuitive, but using the Docker for Mac instructions works not only with Docker Desktop for Windows and macOS, but also WSL2:
     ```    
-    kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v0.45.0/deploy/static/provider/cloud/deploy.yaml
+    kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.0.0/deploy/static/provider/cloud/deploy.yaml
     ```
 
 8. Run `skaffold dev`.

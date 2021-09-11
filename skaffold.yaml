@@ -1,4 +1,4 @@
-apiVersion: skaffold/v2beta12
+apiVersion: skaffold/v2beta1
 kind: Config
 build:
   artifacts:
@@ -10,7 +10,7 @@ build:
         dest: .
       - src: 'src/**/*.jsx'
         dest: .
-      - src: '**/*.json'
+      - src: 'package.json'
         dest: .
       - src: 'public/**/*.html'
         dest: .

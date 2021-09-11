@@ -1,7 +1,8 @@
-FROM node:13-alpine
+FROM node:14-alpine
+EXPOSE 3000
 WORKDIR /app
 COPY ./package.json ./
 ENV CI=true
 RUN npm install
 COPY . .
-CMD ["npm", "start"]
+CMD ["npm", "start"]    

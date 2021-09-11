@@ -1,16 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: client-deployment
+  name: client-deployment-dev
 spec:
   replicas: 1
+  revisionHistoryLimit: 5
   selector:
     matchLabels:
       component: client
+      environment: development
   template:
     metadata:
       labels:
         component: client
+        environment: development
     spec:
       containers:
         - name: client
@@ -21,11 +24,12 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: client-cluster-ip-service
+  name: client-cluster-ip-service-dev
 spec:
   type: ClusterIP
   selector:
     component: client
+    environment: development
   ports:
     - port: 3000
       targetPort: 3000
