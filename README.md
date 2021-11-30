@@ -16,6 +16,8 @@ For the `mkcert` implementation, please see [this repo](https://github.com/chesl
 
 9/11/21 Update - It seems like this wasn't working properly so I fixed the issue.
 
+11/30/21 Update - Clarified a few steps related to `docker` and `sudo`, and where `kubectl`, `minikube`, and `skaffold` should be installed (WSL2).
+
 # Setup
 
 Assuming WSL2 is already enabled and using WSL2 Ubuntu 20.04 LTS is already installed.
@@ -28,7 +30,7 @@ Refer to the documentation below for the latest installation processes.
 
 3. [Install `docker`](https://docs.docker.com/engine/install/ubuntu/) directly into WSL2:
 
-   If you'd rather not have to use `sudo` then also do:
+   Run the following command so you don't have to use `sudo` for `docker` commands:
    ```
    sudo usermod -aG docker $USER
    ```
@@ -39,10 +41,10 @@ Refer to the documentation below for the latest installation processes.
    sudo service docker start
    ```
 
-4. [Install `kubectl`](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
+4. [Install `kubectl` for Linux in WSL2](https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/)
 
 
-5. [Install `minikube`](https://kubernetes.io/docs/tasks/tools/install-minikube/):
+5. [Install `minikube` for Linux in WSL2](https://minikube.sigs.k8s.io/docs/start/):
     
     Go ahead and create a cluster while we are here. 
     ```
@@ -50,7 +52,7 @@ Refer to the documentation below for the latest installation processes.
     ```
     It should spin up in about a minute. 
 
-6. [Install `skaffold`](https://skaffold.dev/docs/install/)
+6. [Install `skaffold` for Linux in WSL2](https://skaffold.dev/docs/install/)
 
 7. [Install / enable `ingress-nginx`](https://kubernetes.github.io/ingress-nginx/deploy/):
 
